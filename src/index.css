@@ -2,41 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Comprehensive Design System for Educational Platform
+All colors MUST be HSL for consistency and theming support.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background & Text */
+    --background: 210 17% 98%;
+    --foreground: 215 25% 27%;
 
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 27%;
+    --card-border: 215 20% 92%;
 
+    /* Interactive Elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand Colors - Academic Blue Theme */
+    --primary: 215 84% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 215 84% 45%;
+    --primary-dark: 215 84% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Academic Teal */
+    --secondary: 195 85% 41%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-light: 195 85% 51%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Success - Academic Green */
+    --success: 152 69% 31%;
+    --success-foreground: 0 0% 98%;
+    --success-light: 152 69% 41%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warning & Info */
+    --warning: 36 77% 49%;
+    --warning-foreground: 0 0% 98%;
+    --info: 205 93% 54%;
+    --info-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Neutral Grays */
+    --muted: 215 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --muted-dark: 215 25% 88%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --accent: 215 20% 94%;
+    --accent-foreground: 215 25% 27%;
 
-    --radius: 0.5rem;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Interactive States */
+    --border: 215 20% 89%;
+    --input: 215 20% 89%;
+    --ring: 215 84% 35%;
+
+    /* Shadows & Effects */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 27% / 0.05);
+    --shadow: 0 1px 3px 0 hsl(215 25% 27% / 0.1), 0 1px 2px 0 hsl(215 25% 27% / 0.06);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 27% / 0.1), 0 2px 4px -1px hsl(215 25% 27% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 27% / 0.1), 0 4px 6px -2px hsl(215 25% 27% / 0.05);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+
+    /* Layout */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +94,68 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Core Background & Text */
+    --background: 215 28% 8%;
+    --foreground: 215 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Card System */
+    --card: 215 28% 10%;
+    --card-foreground: 215 20% 95%;
+    --card-border: 215 20% 18%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Interactive Elements */
+    --popover: 215 28% 10%;
+    --popover-foreground: 215 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Brand Colors - Dark Mode */
+    --primary: 215 84% 55%;
+    --primary-foreground: 215 28% 8%;
+    --primary-light: 215 84% 65%;
+    --primary-dark: 215 84% 45%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary - Dark Teal */
+    --secondary: 195 85% 51%;
+    --secondary-foreground: 215 28% 8%;
+    --secondary-light: 195 85% 61%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Success - Dark Green */
+    --success: 152 69% 41%;
+    --success-foreground: 215 28% 8%;
+    --success-light: 152 69% 51%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Warning & Info */
+    --warning: 36 77% 59%;
+    --warning-foreground: 215 28% 8%;
+    --info: 205 93% 64%;
+    --info-foreground: 215 28% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Neutral Grays */
+    --muted: 215 20% 15%;
+    --muted-foreground: 215 16% 65%;
+    --muted-dark: 215 25% 12%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --accent: 215 20% 15%;
+    --accent-foreground: 215 20% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 215 28% 8%;
+
+    /* Interactive States */
+    --border: 215 20% 18%;
+    --input: 215 20% 18%;
+    --ring: 215 84% 55%;
+
+    /* Shadows & Effects */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 4% / 0.2);
+    --shadow: 0 1px 3px 0 hsl(215 25% 4% / 0.3), 0 1px 2px 0 hsl(215 25% 4% / 0.2);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 4% / 0.3), 0 2px 4px -1px hsl(215 25% 4% / 0.2);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 4% / 0.3), 0 4px 6px -2px hsl(215 25% 4% / 0.2);
+
+    /* Gradients - Dark Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
   }
 }
 
