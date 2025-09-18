@@ -86,59 +86,65 @@ const recentActivities = [
 
 export const DashboardOverview = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 lg:space-y-8">
       {/* Welcome Section */}
-      <div className="bg-gradient-hero rounded-xl p-8 text-white">
-        <h1 className="text-3xl font-bold mb-2">Welcome back, John! 👋</h1>
-        <p className="text-white/90 text-lg">
-          Track your academic journey and build your digital portfolio
-        </p>
-        <div className="mt-6 flex gap-4">
-          <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30 border-white/30">
-            <Plus className="h-4 w-4 mr-2" />
-            Add Activity
-          </Button>
-          <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
-            <Download className="h-4 w-4 mr-2" />
-            Download Portfolio
-          </Button>
+      <div className="relative overflow-hidden bg-gradient-hero rounded-xl lg:rounded-2xl p-6 lg:p-8 text-white">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+        <div className="relative z-10">
+          <h1 className="text-2xl lg:text-3xl font-bold mb-2">Welcome back, John! 👋</h1>
+          <p className="text-white/90 text-base lg:text-lg mb-6">
+            Track your academic journey and build your digital portfolio
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
+            <Button variant="secondary" className="bg-white/20 text-white hover:bg-white/30 border-white/30 backdrop-blur-sm">
+              <Plus className="h-4 w-4 mr-2" />
+              Add Activity
+            </Button>
+            <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
+              <Download className="h-4 w-4 mr-2" />
+              Download Portfolio
+            </Button>
+          </div>
         </div>
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
+        <div className="absolute bottom-0 right-0 w-20 h-20 bg-white/5 rounded-full translate-y-10 translate-x-10" />
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {stats.map((stat, index) => (
           <StatsCard key={index} {...stat} />
         ))}
       </div>
 
       {/* Recent Activities Section */}
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="space-y-4 lg:space-y-6">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-foreground">Recent Activities</h2>
-            <p className="text-muted-foreground">Your latest submissions and updates</p>
+            <h2 className="text-xl lg:text-2xl font-bold text-foreground">Recent Activities</h2>
+            <p className="text-sm lg:text-base text-muted-foreground">Your latest submissions and updates</p>
           </div>
-          <div className="flex gap-3">
-            <Button variant="outline" size="sm">
+          <div className="flex flex-col sm:flex-row gap-2 lg:gap-3">
+            <Button variant="outline" size="sm" className="w-full sm:w-auto">
               <Filter className="h-4 w-4 mr-2" />
               Filter
             </Button>
-            <Button size="sm" className="bg-gradient-primary">
+            <Button size="sm" className="bg-gradient-primary w-full sm:w-auto">
               <Plus className="h-4 w-4 mr-2" />
               Add Activity
             </Button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6">
           {recentActivities.map((activity, index) => (
             <ActivityCard key={index} {...activity} />
           ))}
         </div>
 
         <div className="text-center pt-4">
-          <Button variant="outline">
+          <Button variant="outline" className="w-full sm:w-auto">
             View All Activities
           </Button>
         </div>

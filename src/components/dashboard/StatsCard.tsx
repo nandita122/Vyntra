@@ -47,42 +47,45 @@ export const StatsCard = ({
 
   return (
     <div className={cn(
-      "p-6 rounded-lg border shadow-custom-md transition-all duration-200 hover:shadow-custom-lg",
+      "p-4 lg:p-6 rounded-lg lg:rounded-xl border shadow-custom-md transition-all duration-200 hover:shadow-custom-lg hover:-translate-y-1 group",
       getVariantStyles()
     )}>
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
+      <div className="flex items-start justify-between">
+        <div className="flex-1 min-w-0">
           <p className={cn(
-            "text-sm font-medium",
+            "text-sm font-medium mb-1",
             variant === "default" ? "text-muted-foreground" : "text-current opacity-90"
           )}>
             {title}
           </p>
-          <p className="text-2xl font-bold mt-1">{value}</p>
+          <p className="text-xl lg:text-2xl font-bold">{value}</p>
           {subtitle && (
             <p className={cn(
-              "text-sm mt-1",
+              "text-xs lg:text-sm mt-1",
               variant === "default" ? "text-muted-foreground" : "text-current opacity-80"
             )}>
               {subtitle}
             </p>
           )}
         </div>
-        <div className={cn("p-3 rounded-lg", getIconStyles())}>
+        <div className={cn(
+          "p-2 lg:p-3 rounded-lg transition-transform group-hover:scale-110", 
+          getIconStyles()
+        )}>
           {icon}
         </div>
       </div>
       
       {trend && (
-        <div className="flex items-center gap-1 mt-4">
+        <div className="flex items-center gap-1 mt-3 lg:mt-4 pt-3 border-t border-current/10">
           <span className={cn(
-            "text-sm font-medium",
+            "text-xs lg:text-sm font-medium",
             trend.isPositive ? "text-success" : "text-destructive"
           )}>
             {trend.isPositive ? "+" : ""}{trend.value}%
           </span>
           <span className={cn(
-            "text-sm",
+            "text-xs lg:text-sm",
             variant === "default" ? "text-muted-foreground" : "text-current opacity-80"
           )}>
             from last month
